@@ -1,7 +1,6 @@
-import './index.css'
-import {Component} from 'react'
 import UserInfo from '../UserInfo'
 import BlogList from '../BlogList'
+import './index.css'
 
 const blogsList = [
   {
@@ -37,19 +36,11 @@ const blogsList = [
     publishedDate: 'Nov 10th',
   },
 ]
-class Home extends Component {
-  render() {
-    return (
-      <div className="home-container">
-        <UserInfo />
-        <ul>
-          {blogsList.map(each => (
-            <BlogList each={each} key={each.id} />
-          ))}
-        </ul>
-      </div>
-    )
-  }
-}
+const Home = () => (
+  <div className="home-container">
+    <UserInfo />
+    <BlogList blogsList={blogsList} />
+  </div>
+)
 
 export default Home
